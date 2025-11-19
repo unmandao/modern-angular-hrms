@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [FormsModule],
   template: `
   <div class="login-container">
       <h1>Login</h1>
       <form>
-          <input type="text" name="email" placeholder="Email">
+          <input type="text" name="email" 
+                 placeholder="Email"
+                 [(ngModel)]="credentials.email">
           <input type="password" name="password"
-              placeholder="Password">
+                 placeholder="Password"
+                 [(ngModel)]="credentials.password">
           <button type="submit">Login</button>
       </form>
   </div>
@@ -19,5 +23,5 @@ import { Component } from '@angular/core';
 export class Login {
 
   credentials = { email: '', password: '' };
-  
+
 }
