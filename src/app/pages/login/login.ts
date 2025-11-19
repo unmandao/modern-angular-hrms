@@ -1,9 +1,10 @@
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+  imports: [FormsModule, NgIf],
   template: `
   <div class="login-container">
       <h1>Login</h1>
@@ -16,6 +17,10 @@ import { FormsModule } from '@angular/forms';
                  [(ngModel)]="credentials.password">
           <button type="submit">Login</button>
       </form>
+      <span class="warning" 
+            *ngIf="!credentials.email || !credentials.password">
+        Please fill in all the required fields
+      </span>
   </div>
   `,  
   styleUrl: './login.css',
