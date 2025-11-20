@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
-  imports: [FormsModule, NgIf],
+  selector: 'app-login-component',
+  imports: [NgIf, FormsModule],
   template: `
   <div class="login-container">
       <h1>Login</h1>
@@ -22,10 +22,10 @@ import { FormsModule } from '@angular/forms';
         Please fill in all the required fields
       </span>
   </div>
-  `,  
-  styleUrl: './login.css',
+  `,
+  styleUrl: './login-component.css',
 })
-export class Login {
+export class LoginComponent {
 
   credentials = { email: '', password: '' };
 
