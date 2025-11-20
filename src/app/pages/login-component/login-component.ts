@@ -1,6 +1,7 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth-service';
 
 @Component({
   selector: 'app-login-component',
@@ -23,10 +24,19 @@ import { FormsModule } from '@angular/forms';
       </span>
   </div>
   `,
+  providers: [AuthService],
   styleUrl: './login-component.css',
 })
 export class LoginComponent {
 
   credentials = { email: '', password: '' };
+
+  constructor(private authService: AuthService) { }
+
+  submit() {
+    if (this.credentials.email && this.credentials.password) {
+      this.authService.login(this.credentials).subscribe();
+    }
+  }
 
 }
